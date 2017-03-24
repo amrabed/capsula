@@ -23,7 +23,7 @@
                 <span class="sr-only">Toggle navigation</span>
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="{{ site.baseurl }}/">{{ site.name }}-{{ site.description }}</a>
+           <h1><a class="navbar-brand page-scroll" href="{{ site.baseurl }}/">{{ site.name }}-{{ site.description }}</a></h1>
             <!-- p class="site-description">{{ site.description }}</p-->
         </div>
 
@@ -36,14 +36,15 @@
         </div>
     </div>
 </nav>
-
+<aside></aside>
 <div id="main" class="container">
    {{ content }}
 </div>
+<aside></aside>
 
-<footer class="footer">
+<div>
     {% include footer.html %}
-</footer>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
