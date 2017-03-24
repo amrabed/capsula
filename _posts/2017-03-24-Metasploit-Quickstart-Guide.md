@@ -3,33 +3,34 @@ layout: post
 title: Metasploit Quickstart Guide
 ---
 
-This guide is created by a beginner for beginners to help you take your first steps to learning the 
-[Metasploit](https://metasploit.com) framework.
+This guide is created by a beginner for beginners and designed to help get you familiar with 
+<a href="https://metasploit.com" target="_blanl">Metasploit</a> framework as quickly as possible.
 
-At the end of this post, I am providing a list of great resources to be used as references when using Metasploit. I find those resources to be great references for someone who already knows what they are looking for. However, by focusing mostly on explaining the terminology and steps of penetration testing, they failed to provide a clear organized roadmap to help a beginner like myself understand the ins and outs of Metasploit, which encouraged me to write this guide.
+At the end of this post, I am providing a list of great <a href="#resources">resources</a> to be used as references when using Metasploit. I find those resources to be great references for someone who already knows what they are looking for. However, by focusing mostly on explaining the terminology and steps of penetration testing, they kinda fail to provide a clear organized roadmap to help a beginner like myself understand the ins and outs of Metasploit, which encouraged me to write this guide.
 
-In this step-by-step guide, we will skip terminology and penetration testing steps (as they are already very well covered in other resources) and we will jump directly into exploring the Metasploit framework from installation to exploitation.
+In this step-by-step guide, we will skip terminology and penetration testing steps (as they are already very well covered in other <a href="#resources">resources</a>) and we will jump directly into exploring the Metasploit framework from installation to exploitation.
 
 # Installing Metasploit
 
 The easiest way to start using Metasploit right away without needing to install Metasploit on your machine is to use 
-the official [Kali Linux Docker container](https://store.docker.com/community/images/kalilinux/kali-linux-docker). 
-You don't need to have experience with [Docker](https://www.docker.com/), 
-but you will need to have it installed on your machine from the [Docker Store](https://store.docker.com/search?offering=community&type=edition). 
+the official <a href="https://store.docker.com/community/images/kalilinux/kali-linux-docker" target ="_blank">Kali Linux Docker container</a>. 
+You don't need to have experience with <a href="https://www.docker.com/" target="_blank">Docker</a>, 
+but you will need to have it installed on your machine from the 
+<a href="https://store.docker.com/search?offering=community&type=edition" target="_blank">Docker Store</a>. 
 To start the Docker container and install Metasploit, use the following commands:
 ```
 $ docker run -it kalilinux/kali-linux-docker bash
 root@0129d62d2319:/# apt-get install -y metasploit
-````
+```
 To avoid installing Metasploit every time you start the container, 
 you may need to use a Kali Linux container with Metasploit installed like 
-[this one](https://store.docker.com/community/images/linuxkonsult/kali-metasploit) <sup>*</sup>, in which case, 
+<a href="https://store.docker.com/community/images/linuxkonsult/kali-metasploit" target="_blank">this one</a><a href="#disclaimer"><sup>*</sup></a>, in which case, 
 you would use the following commands instead:
 ```
 $ docker run -it linuxkonsult/kali-metasploit
 root@0129d62d2319:/# msfupdate
 ```
-> <sup>*</sup> Disclaimer: This is NOT an official Kali Linux image and was not tested by the author. 
+> <span id="disclaimer"><sup>*</sup></span> **Disclaimer**: This is NOT an official Kali Linux image and was not tested by the author. 
 Use at your own responsibility.
 
 ## Initial Setup
@@ -43,62 +44,52 @@ msfconsole
 # Exploring Metasploit
 
 To get more familiar with the Metasploit framework, let's start by checking its commands. 
-I am highlighting the [most commonly used commands](https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/) 
-and we will go over some of them as we move forward.
+I am highlighting the 
+<a href="https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands" target="_blank">
+most commonly used commands</a> and we will go over some of them as we move forward.
 ```
 msf> help
 ```
-```
+<pre><code>
 Core Commands
 =============
     Command       Description
     -------       -----------
     ?             Help menu
-    advanced      Displays advanced options for one or more modules
-    back          Move back from the current context
+    <b>advanced      Displays advanced options for one or more modules</b>
+    <b>back          Move back from the current context</b>
     banner        Display an awesome metasploit banner
     cd            Change the current working directory
     color         Toggle color
     connect       Communicate with a host
     edit          Edit the current module with $VISUAL or $EDITOR
-    exit          Exit the console
+    <b>exit          Exit the console</b>
     get           Gets the value of a context-specific variable
     getg          Gets the value of a global variable
     grep          Grep the output of another command
-    help          Help menu
-    info          Displays information about one or more modules
+    <b>help          Help menu</b>
+    <b>info          Displays information about one or more modules</b>
     irb           Drop into irb scripting mode
-    jobs          Displays and manages jobs
-    kill          Kill a job
-    load          Load a framework plugin
+    <b>jobs          Displays and manages jobs</b>
+    <b>kill          Kill a job</b>
+    <b>load          Load a framework plugin</b>
     loadpath      Searches for and loads modules from a path
     makerc        Save commands entered since start to a file
-    options       Displays global options or for one or more modules
-    popm          Pops the latest module off the stack and makes it active
-    previous      Sets the previously loaded module as the current module
-    pushm         Pushes the active or list of modules onto the module stack
-    quit          Exit the console
-    reload_all    Reloads all modules from all defined module paths
-    rename_job    Rename a job
-    resource      Run the commands stored in a file
-    route         Route traffic through a session
-    save          Saves the active datastores
-    search        Searches module names and descriptions
+    <b>options       Displays global options or for one or more modules</b>
+    ...
+    <b>search        Searches module names and descriptions</b>
     sess          Interact with a given session
-    sessions      Dump session listings and display information about sessions
-    set           Sets a context-specific variable to a value
-    setg          Sets a global variable to a value
-    show          Displays modules of a given type, or all modules
-    sleep         Do nothing for the specified number of seconds
-    spool         Write console output into a file as well the screen
-    threads       View and manipulate background threads
-    unload        Unload a framework plugin
-    unset         Unsets one or more context-specific variables
+    <b>sessions      Dump session listings and display information about sessions</b>
+    <b>set           Sets a context-specific variable to a value</b>
+    <b>setg          Sets a global variable to a value</b>
+    <b>show          Displays modules of a given type, or all modules</b>
+    ...
+    <b>unset         Unsets one or more context-specific variables</b>
     unsetg        Unsets one or more global variables
-    use           Selects a module by name
+    <b>use           Selects a module by name</b>
     version       Show the framework and console library version numbers
 ...
-```
+</code></pre>
 To learn more about one of the commands, e.g. `search`, we can simply do:
 ```
 msf> help search
@@ -343,15 +334,15 @@ msf exploit(apache_continuum_cmd_exec) > run
 We now have a server running on our Kali box at `192.168.1.15` listening at port `4444` and trying to attack remote server 
 at `192.168.1.10`
 
-... To be continued
+**... To be continued**
 
-# Resources
+# <span id="resources">Resources</span>
 
-### To learn more
-- [Metasploit Unleashed](https://www.offensive-security.com/metasploit-unleashed)
-- [Metasploit - The Penetration Tester's Guide](http://www.nostarch.com/metasploit) 
-- [Metasploit External Resource Portal](http://resources.metasploit.com/)
+**To learn more**:
+- <a href="https://www.offensive-security.com/metasploit-unleashed" target="_blank">Metasploit Unleashed</a>
+- <a href="http://www.nostarch.com/metasploit" target="_blank">Metasploit - The Penetration Tester's Guide</a>
+- <a href="http://resources.metasploit.com" target="_blank">Metasploit External Resource Portal</a>
 
-### To seek help:
-- [Rapid7 Community](https://community.rapid7.com/community/metasploit)
-- [Information Security - Stack Exxchange](https://security.stackexchange.com/questions/tagged/metasploit)
+**To seek help**:
+- <a href="https://community.rapid7.com/community/metasploit" target="_blank">Rapid7 Community</a>
+- <a href="https://security.stackexchange.com/questions/tagged/metasploit" target= "_blank">Information Security - Stack Exchange</a>
