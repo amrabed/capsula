@@ -7,14 +7,10 @@ layout: default
     </div>
 </aside>
 
-<article class="section">
-	<div class="date">
-		{{ page.date | date: "%B %e, %Y" }}
+<article class="container">  
+	<div>
+    	{{ content }}
 	</div>
-  
-	<div class="container">
-    {{ content }}
-  </div>
 	
 	{% if post.tags.size > 0 %}
 	<div>
@@ -25,6 +21,10 @@ layout: default
 		</ul>
 	</div>
 	{% endif %}
+
+	<div class="text-muted">
+		Written on {{ page.date | date: "%B %e, %Y" }}
+	</div>
 
 	{% include disqus.html %}
 </article>
