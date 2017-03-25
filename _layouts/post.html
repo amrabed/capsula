@@ -2,14 +2,14 @@
 layout: default
 ---
 <aside class="bg-primary">
-    <div class="container text-center">
+    <div class="container-fluid text-center">
         <h3>{{ page.title }}</h3>
     </div>
 </aside>
 
 <article class="section">
 	<div class="date">
-		{{ page.date | "%B %e, %Y" }}
+		{{ page.date | date: "%B %e, %Y" }}
 	</div>
   
 	<div class="container">
