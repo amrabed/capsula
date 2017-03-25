@@ -12,10 +12,10 @@ layout: default
     	{{ content }}
 	</div>
 	
-	{% if post.tags.size > 0 %}
+	{% if page.tags.size > 0 %}
 	<div>
 		<ul>
-			{% for tag in post.tags %}
+			{% for tag in page.tags %}
 			<li><label class="label label-default" style="margin-right: -5px">{{ tag }}</label></li>
 			{% endfor %}
 		</ul>
