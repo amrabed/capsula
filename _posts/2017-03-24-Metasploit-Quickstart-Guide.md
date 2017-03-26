@@ -20,10 +20,10 @@ but you will need to have it installed on your machine from the
 <a href="https://store.docker.com/search?offering=community&type=edition" target="_blank">Docker Store</a>. If you prefer to install Metasploit on your machine, you can follow the instructions <a href="https://help.rapid7.com/metasploit/Content/installation-and-updates/installing-msf.html" target="_blank">here</a>.
 
 To start the Docker container and install Metasploit, use the following commands:
-{% highlight bash %}
+```
 $ docker run -it kalilinux/kali-linux-docker bash
 root@0129d62d2319:/# apt-get install -y metasploit
-{% endhighlight %}
+```
 To avoid installing Metasploit every time you start the container, 
 you may need to use a Kali Linux container with Metasploit installed like 
 <a href="https://store.docker.com/community/images/linuxkonsult/kali-metasploit" target="_blank">this one</a><a href="#disclaimer"><sup>*</sup></a>, in which case, 
