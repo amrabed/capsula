@@ -53,6 +53,9 @@ most commonly used commands</a> and we will go over some of them as we move forw
 ```
 msf> help
 ```
+<div data-role="main" class="ui-content">
+<div data-role="collapsible">
+<p>Output</p>
 <pre><code>
 Core Commands
 =============
@@ -93,6 +96,9 @@ Core Commands
     version       Show the framework and console library version numbers
 ...
 </code></pre>
+</div>
+</div>
+
 To learn more about one of the commands, e.g. `search`, we can simply use `help search` or `search -h`:
 ```
 msf> help search
