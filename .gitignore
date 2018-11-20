@@ -1,12 +1,14 @@
-_site
 .DS_Store
 .jekyll
 .jekyll-metadata
 .bundle
 .sass-cache
-Gemfile
+#Gemfile
 Gemfile.lock
 node_modules
 package.json
 
-archive/
+_site/
+vendor/
+
+docker-compose.yml
