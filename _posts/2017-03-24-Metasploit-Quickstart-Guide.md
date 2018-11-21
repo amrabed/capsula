@@ -16,7 +16,7 @@ In this step-by-step guide, we will skip terminology and penetration testing ste
 # Installing Metasploit
 The easiest way to start using Metasploit right away without needing to install Metasploit on your machine is to use 
 the official <a href="https://store.docker.com/community/images/kalilinux/kali-linux-docker" target ="_blank">Kali Linux Docker container</a>. 
-You don't need to have experience with <a href="https://www.docker.com/" target="_blank">Docker</a>, 
+You do not need to have experience with <a href="https://www.docker.com/" target="_blank">Docker</a>, 
 but you will need to have it installed on your machine from the 
 <a href="https://store.docker.com/search?offering=community&type=edition" target="_blank">Docker Store</a>. If you prefer to install Metasploit on your machine, you can follow the instructions <a href="https://help.rapid7.com/metasploit/Content/installation-and-updates/installing-msf.html" target="_blank">here</a>.
 

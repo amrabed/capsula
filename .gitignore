@@ -10,5 +10,3 @@ package.json
 
 _site/
 vendor/
-
-docker-compose.yml
