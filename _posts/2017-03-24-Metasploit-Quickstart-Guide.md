@@ -135,9 +135,8 @@ Matching Modules
    exploit/multi/fileformat/adobe_u3d_meshcont                            2009-10-13       good       Adobe U3D CLODProgressiveMeshDeclaration Array Overrun
    exploit/multi/fileformat/maple_maplet                                  2010-04-26       excellent  Maple Maplet File Creation and Command Execution
    exploit/multi/fileformat/office_word_macro                             2012-01-10       excellent  Microsoft Office Word Malicious Macro Execution
-   exploit/multi/fileformat/peazip_command_injection                      2009-06-05       excellent  PeaZip Zip Processing Command Injection
-   exploit/multi/handler                                                                   manual     Generic Payload Handler
-   ...
+   exploit/multi/handler                                                                   manual     Generic Payload Handler
+   ...
    exploit/windows/browser/yahoomessenger_server                          2007-06-05       good       Yahoo! Messenger 8.1.0.249 ActiveX Control Buffer Overflow
    exploit/windows/browser/zenturiprogramchecker_unsafe                   2007-05-29       excellent  Zenturi ProgramChecker ActiveX Control Arbitrary File Download
    exploit/windows/browser/zenworks_helplauncher_exec                     2011-10-19       normal     AdminStudio LaunchHelp.dll ActiveX Arbitrary Code Execution
