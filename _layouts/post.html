@@ -1,25 +1,44 @@
----
-layout: default
----
-
-<article class="container text-justify">  
-	<div>
-    	{{ content }}
-	</div>
-	
-	{% if page.tags.size > 0 %}
-	<div>
-		<ul class="list-inline">
-			{% for tag in page.tags %}
-			<li><label class="label label-default" style="margin-right: -5px">{{ tag }}</label></li>
-			{% endfor %}
-		</ul>
-	</div>
-	{% endif %}
-
-	<div class="text-muted">
-		Written on {{ page.date | date: "%B %e, %Y" }}
-	</div>
-
-	{% include disqus.html %}
-</article>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% raw %}<?php include "../../_includes/header.php" ?>{% endraw %}
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }} - {{ site.description }}</title>
+</head>
+<body id="page-top">
+{% raw %}<?php include "../../_includes/navbar.php" ?>{% endraw %}{% include title.html %}
+<aside class="mh-50 py-5 bg-primary container-fluid text-center text-white"><h3>{{ page.title }}</h3></aside>
+<section>
+    <article class="container text-justify">
+        <div>{{ content }}</div>
+        {% if page.tags.size > 0 %}
+        <div>
+            <ul class="list-inline">
+                {% for tag in page.tags %}
+                <li class="list-inline-item"><span class="badge badge-primary py-2">{{ tag }}</span></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        <div class="text-muted">Written on {{ page.date | date: "%B %e, %Y" }}</div>
+        {% if site.disqus %}
+        <div class="comments">
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+                const disqus_shortname = '{{ site.disqus }}';
+                (function () {
+                    const dsq = document.createElement('script');
+                    dsq.type = 'text/javascript';
+                    dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+                Disqus.</a></noscript>
+        </div>
+        {% endif %}
+    </article>
+</section>
+<div>{% raw %}<?php include "../../_includes/footer.php" ?>{% endraw %}{% include footer.html %}</div>
+</body>
+</html>

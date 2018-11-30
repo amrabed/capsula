@@ -1,72 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    {% include header.html %}
+    {% raw %}<?php include "../_includes/header.php" ?>{% endraw %}
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }} - {{ site.description }}</title>
 </head>
 <body id="page-top">
-<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu-items">
-                <span class="sr-only">Toggle navigation</span>
-                <i class="fa fa-bars"></i>
-            </button>
-		<a class="navbar-brand page-scroll" href="{{ site.baseurl }}/">{{ site.name }} - {{ site.description }}</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="menu-items">
-        <ul class="nav navbar-nav navbar-right" style="margin: 10px 0px;">
-		<a target="_blank" href="mailto:amraabed@gmail.com" title="Email">
-			<span class="fa-stack">
-				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-			</span>
-		</a>
-		<a target="_blank" href="https://www.linkedin.com/in/amrabed" title="LinkedIn">
-			<span class="fa-stack">
-				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-			</span>
-		</a>
-		<a target="_blank" href="https://github.com/amrabed" title="GitHub">
-			<span class="fa-stack">
-				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-github-alt fa-stack-1x fa-inverse"></i>
-			</span>
-		</a>
-		<a target="_blank" href="http://stackoverflow.com/users/2070636" title="Stack Overflow">
-			<span class="fa-stack">
-				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-stack-overflow fa-stack-1x fa-inverse"></i>
-			</span>
-		</a>
-		<a target="_blank" href="https://www.twitter.com/amr_abed" title="Twitter">
-			<span class="fa-stack">
-				<i class="fa fa-circle fa-stack-2x"></i>
-				<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-			</span>
-		</a>
-		</ul>
-	    </div>
-        </div>
-</nav>
-	
-<aside class="bg-primary container-fluid text-center">
-	<h3>{{ page.title }}</h3>
-</aside>
-
-<section>
-   {{ content }}
-</section>
-
-<div>
-    {% include footer.html %}
-</div>
-
-{% include analytics.html %}
-
+{% raw %}<?php include "../_includes/navbar.php" ?>{% endraw %}{% include title.html %}
+<aside class="mh-50 py-5 bg-primary container-fluid text-center"><h3>{{ page.title }}</h3></aside>
+<section>{{ content }}</section>
+<div>{% raw %}<?php include "../_includes/footer.php" ?>{% endraw %}{% include footer.html %}</div>
 </body>
 </html>

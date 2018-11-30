@@ -10,3 +10,6 @@ package.json
 
 _site/
 vendor/
+
+.idea/
+*.iml
