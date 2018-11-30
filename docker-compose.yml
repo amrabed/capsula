@@ -3,9 +3,9 @@ services:
   blog:
     image: jekyll/jekyll:latest
     container_name: jekyll
-    command: bash -c "gem install jekyll-utf8 && jekyll build --watch"
+    command: jekyll build --watch
     restart: always
     volumes:
-      - ~/amrabed.me/blog:/srv/jekyll/_site
+      - $BLOG_DIR:/srv/jekyll/_site
       - $PWD:/srv/jekyll
       - $PWD/vendor/bundle:/usr/local/bundle

@@ -1,0 +1,11 @@
+language: ruby
+
+dist: trusty
+
+addons:
+  sonarcloud:
+    organization: "amrabed-github"
+
+script:
+- bundle exec jekyll build --trace
+- sonar-scanner
