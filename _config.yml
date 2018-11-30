@@ -18,7 +18,7 @@ kramdown:
 
 plugins:
 - jekyll-feed
-- jekyll-sitemap
+#- jekyll-sitemap
 
 exclude:
   - Gemfile

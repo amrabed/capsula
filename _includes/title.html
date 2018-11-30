@@ -1,1 +1,5 @@
-<script>document.getElementById("brand").textContent = "{{ site.name }} - {{ site.description }}";</script>
+<script>
+    const a = document.getElementById("brand");
+    a.textContent = "{{ site.name }} - {{ site.description }}";
+    a.href = "{{ site.baseurl }}";
+</script>
