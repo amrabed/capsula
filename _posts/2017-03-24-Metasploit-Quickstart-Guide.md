@@ -4,6 +4,7 @@ title: Metasploit Quickstart Guide
 date: 2017-03-26
 tags: Tech Metasploit Security Quickstart Tutorial
 categories: Tech Tutorial Metasploit
+permalink: :title/index.php
 ---
 
 This guide is created by a beginner for beginners and designed to help you get familiar with the 

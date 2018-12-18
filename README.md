@@ -8,7 +8,7 @@
 ## Usage 
 ### Build using Bundler
 ```
-bundle install && jekyll build [-d <webroot>/blog] [--watch]
+bundle install && bundle exec jekyll build [-d <webroot>/blog] [--watch]
 ```
 This adds built blog files into the specified folder if any, 
 or the default `./_site` otherwise.
