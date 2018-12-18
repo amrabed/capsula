@@ -4,7 +4,6 @@ title: Metasploit Quickstart Guide
 date: 2017-03-26
 tags: Tech Metasploit Security Quickstart Tutorial
 categories: Tech Tutorial Metasploit
-permalink: :title/index.php
 ---
 
 This guide is created by a beginner for beginners and designed to help you get familiar with the 
@@ -60,37 +59,37 @@ Core Commands
     Command       Description
     -------       -----------
     ?             Help menu
-    <b>advanced      Displays advanced options for one or more modules</b>
-    <b>back          Move back from the current context</b>
+    <strong>advanced      Displays advanced options for one or more modules</strong>
+    <strong>back          Move back from the current context</strong>
     banner        Display an awesome metasploit banner
     cd            Change the current working directory
     color         Toggle color
     connect       Communicate with a host
     edit          Edit the current module with $VISUAL or $EDITOR
-    <b>exit          Exit the console</b>
+    <strong>exit          Exit the console</strong>
     get           Gets the value of a context-specific variable
     getg          Gets the value of a global variable
     grep          Grep the output of another command
-    <b>help          Help menu</b>
-    <b>info          Displays information about one or more modules</b>
+    <strong>help          Help menu</strong>
+    <strong>info          Displays information about one or more modules</strong>
     irb           Drop into irb scripting mode
-    <b>jobs          Displays and manages jobs</b>
-    <b>kill          Kill a job</b>
-    <b>load          Load a framework plugin</b>
+    <strong>jobs          Displays and manages jobs</strong>
+    <strong>kill          Kill a job</strong>
+    <strong>load          Load a framework plugin</strong>
     loadpath      Searches for and loads modules from a path
     makerc        Save commands entered since start to a file
-    <b>options       Displays global options or for one or more modules</b>
+    <strong>options       Displays global options or for one or more modules</strong>
     ...
-    <b>search        Searches module names and descriptions</b>
+    <strong>search        Searches module names and descriptions</strong>
     sess          Interact with a given session
-    <b>sessions      Dump session listings and display information about sessions</b>
-    <b>set           Sets a context-specific variable to a value</b>
-    <b>setg          Sets a global variable to a value</b>
-    <b>show          Displays modules of a given type, or all modules</b>
+    <strong>sessions      Dump session listings and display information about sessions</strong>
+    <strong>set           Sets a context-specific variable to a value</strong>
+    <strong>setg          Sets a global variable to a value</strong>
+    <strong>show          Displays modules of a given type, or all modules</strong>
     ...
-    <b>unset         Unsets one or more context-specific variables</b>
+    <strong>unset         Unsets one or more context-specific variables</strong>
     unsetg        Unsets one or more global variables
-    <b>use           Selects a module by name</b>
+    <strong>use           Selects a module by name</strong>
     version       Show the framework and console library version numbers
 ...
 </code></pre>
@@ -313,8 +312,8 @@ Payload options (windows/meterpreter/reverse_tcp):
    Name          Current Setting  Required  Description
    ----          ---------------  --------  -----------
    DebugOptions  0                no        Debugging options for POSIX meterpreter
-   <b>LHOST         192.168.1.15     yes       The listen address</b>
-   <b>LPORT         8080             yes       The listen port</b>
+   <strong>LHOST         192.168.1.15     yes       The listen address</strong>
+   <strong>LPORT         8080             yes       The listen port</strong>
 </code></pre>
 ## Running the exploit
 We can now run the exploit using `run` or `exploit`. To start the exploit as a background job, we use the `-j` option. You may want to use `help run` to see other options of the `run`/`exploit` command.
